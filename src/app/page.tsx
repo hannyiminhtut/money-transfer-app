@@ -1,17 +1,14 @@
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
-import { format } from 'date-fns';
+import { getYangonTodayString, getYangonDayRange, formatYangonDate } from '@/lib/utils/time';
 import { ArrowDownCircle, ArrowUpCircle, PlusCircle, History, TrendingUp } from 'lucide-react';
 import { Translate } from '@/components/Translate';
 
 export default async function Dashboard() {
   const supabase = await createClient();
 
-  const currentDate = new Date();
-  const startDate = new Date(currentDate);
-  startDate.setHours(0, 0, 0, 0);
-  const endDate = new Date(currentDate);
-  endDate.setHours(23, 59, 59, 999);
+  const todayStr = getYangonTodayString();
+  const { start: startISO, end: endISO } = getYangonDayRange(todayStr);
 
   // Fetch today's transactions
   const { data: transactions } = await supabase
@@ -22,8 +19,8 @@ export default async function Dashboard() {
       transaction_fee,
       payment_categories ( name )
     `)
-    .gte('created_at', startDate.toISOString())
-    .lte('created_at', endDate.toISOString());
+    .gte('created_at', startISO)
+    .lte('created_at', endISO);
 
   // Calculate totals
   let totalIn = 0;
@@ -53,7 +50,7 @@ export default async function Dashboard() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900"><Translate tKey="dashboard.overview" /></h1>
-          <p className="text-gray-500 mt-1">{format(currentDate, 'EEEE, MMMM do, yyyy')}</p>
+          <p className="text-gray-500 mt-1">{formatYangonDate(new Date())}</p>
         </div>
 
         <div className="flex items-center space-x-3">

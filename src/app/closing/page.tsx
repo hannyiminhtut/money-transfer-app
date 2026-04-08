@@ -1,19 +1,14 @@
 import { createClient } from '@/utils/supabase/server';
 import { closeDay } from './actions';
-import { format } from 'date-fns';
+import { getYangonTodayString, getYangonDayRange, formatYangonDate, formatYangonTime } from '@/lib/utils/time';
 import { Lock, FileCheck2, User, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 export default async function ClosingPage(props: { searchParams: Promise<{ error?: string }> }) {
     const searchParams = await props.searchParams;
     const supabase = await createClient();
 
-    const currentDate = new Date();
-    const todayStr = format(currentDate, 'yyyy-MM-dd');
-
-    const startDate = new Date(currentDate);
-    startDate.setHours(0, 0, 0, 0);
-    const endDate = new Date(currentDate);
-    endDate.setHours(23, 59, 59, 999);
+    const todayStr = getYangonTodayString();
+    const { start: startISO, end: endISO } = getYangonDayRange(todayStr);
 
     // 1. Check if today is already closed
     const { data: todayClosing } = await supabase
@@ -26,8 +21,8 @@ export default async function ClosingPage(props: { searchParams: Promise<{ error
     const { data: transactions } = await supabase
         .from('transactions')
         .select('type, amount')
-        .gte('created_at', format(startDate, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"))
-        .lte('created_at', format(endDate, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"));
+        .gte('created_at', startISO)
+        .lte('created_at', endISO);
 
     let totalIn = 0;
     let totalOut = 0;
@@ -75,17 +70,17 @@ export default async function ClosingPage(props: { searchParams: Promise<{ error
                     </div>
                     <h2 className="text-2xl font-bold text-green-900 mb-2">Today is Closed</h2>
                     <p className="text-green-800 mb-4">
-                        Transactions for {format(new Date(todayClosing.date), 'MMMM do, yyyy')} have been finalized.
+                        Transactions for {formatYangonDate(todayClosing.date)} have been finalized.
                     </p>
                     <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-lg border border-green-100 shadow-sm text-sm text-gray-700">
                         <User className="w-4 h-4 text-gray-400" />
-                        <span>Closed by <span className="font-semibold">{todayClosing.profiles?.full_name || 'Staff'}</span> at {format(new Date(todayClosing.created_at), 'hh:mm a')}</span>
+                        <span>Closed by <span className="font-semibold">{todayClosing.profiles?.full_name || 'Staff'}</span> at {formatYangonTime(todayClosing.created_at)}</span>
                     </div>
                 </div>
             ) : (
                 <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div className="mb-6 pb-6 border-b border-gray-100">
-                        <h2 className="text-xl font-bold text-gray-900 mb-2">Summary for {format(currentDate, 'MMMM do, yyyy')}</h2>
+                        <h2 className="text-xl font-bold text-gray-900 mb-2">Summary for {formatYangonDate(new Date())}</h2>
                         <p className="text-gray-500">Please verify the totals against your physical cash and digital wallets before closing.</p>
                     </div>
 
@@ -142,7 +137,7 @@ export default async function ClosingPage(props: { searchParams: Promise<{ error
                             {pastClosings?.map((c) => (
                                 <tr key={c.id} className="hover:bg-gray-50 transition-colors">
                                     <td className="p-4 text-sm font-medium text-gray-900">
-                                        {format(new Date(c.date), 'MMM dd, yyyy')}
+                                        {formatYangonDate(c.date)}
                                     </td>
                                     <td className="p-4 text-sm font-medium text-green-600">
                                         +{Number(c.total_in).toLocaleString()} Ks

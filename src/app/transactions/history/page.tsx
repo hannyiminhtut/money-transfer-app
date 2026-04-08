@@ -1,7 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
 import Link from 'next/link';
 import { Filter, Calendar, Users, PlusCircle, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import { format } from 'date-fns';
+import { getYangonTodayString, getYangonDayRange, formatYangonTime } from '@/lib/utils/time';
 import { Translate } from '@/components/Translate';
 
 export default async function HistoryPage(props: {
@@ -11,16 +11,13 @@ export default async function HistoryPage(props: {
     const supabase = await createClient();
 
     // Filtering setup
-    const currentDate = format(new Date(), 'yyyy-MM-dd');
+    const currentDate = getYangonTodayString();
     const selectedDate = searchParams.date || currentDate;
     const selectedType = searchParams.type || '';
     const selectedCategoryId = searchParams.category_id || '';
 
     // Get start/end of the selected day
-    const startDate = new Date(selectedDate);
-    startDate.setHours(0, 0, 0, 0);
-    const endDate = new Date(selectedDate);
-    endDate.setHours(23, 59, 59, 999);
+    const { start: startISO, end: endISO } = getYangonDayRange(selectedDate);
 
     let query = supabase
         .from('transactions')
@@ -29,8 +26,8 @@ export default async function HistoryPage(props: {
       payment_categories ( name, icon ),
       profiles ( full_name )
     `)
-        .gte('created_at', startDate.toISOString())
-        .lte('created_at', endDate.toISOString())
+        .gte('created_at', startISO)
+        .lte('created_at', endISO)
         .order('created_at', { ascending: false });
 
     if (selectedType) {
@@ -127,7 +124,7 @@ export default async function HistoryPage(props: {
                             {transactions?.map((t) => (
                                 <tr key={t.id} className="hover:bg-gray-50/50 transition-colors">
                                     <td className="p-4 text-sm text-gray-600 whitespace-nowrap">
-                                        {format(new Date(t.created_at), 'hh:mm a')}
+                                        {formatYangonTime(t.created_at)}
                                     </td>
                                     <td className="p-4">
                                         {t.type === 'IN' ? (
@@ -193,7 +190,7 @@ export default async function HistoryPage(props: {
                                         {t.payment_categories?.name || <Translate tKey="history.unknown" />}
                                     </span>
                                 </div>
-                                <span className="text-xs text-gray-500">{format(new Date(t.created_at), 'hh:mm a')}</span>
+                                <span className="text-xs text-gray-500">{formatYangonTime(t.created_at)}</span>
                             </div>
 
                             <div className="flex justify-between items-end">
