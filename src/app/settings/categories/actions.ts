@@ -38,9 +38,15 @@ export async function deleteCategory(id: string) {
         .delete()
         .eq('id', id);
 
-    if (!error) {
-        revalidatePath('/settings/categories');
+    // If real hard-delete fails (likely due to Foreign Key constraint), do a soft-delete instead!
+    if (error) {
+        await supabase
+            .from('payment_categories')
+            .update({ is_active: false })
+            .eq('id', id);
     }
+
+    revalidatePath('/settings/categories');
 }
 
 export async function updatePassword(formData: FormData) {

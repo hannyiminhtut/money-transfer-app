@@ -30,6 +30,7 @@ export default async function CategoriesPage(props: { searchParams: Promise<{ ta
     const { data: categories } = await supabase
         .from('payment_categories')
         .select('*')
+        .eq('is_active', true)
         .order('created_at', { ascending: true });
 
     const getIconComponent = (iconName: string) => {
