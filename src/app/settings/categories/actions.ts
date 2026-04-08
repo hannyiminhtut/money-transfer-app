@@ -42,3 +42,21 @@ export async function deleteCategory(id: string) {
         revalidatePath('/settings/categories');
     }
 }
+
+export async function updatePassword(formData: FormData) {
+    const supabase = await createClient();
+    const password = formData.get('password') as string;
+    const confirm = formData.get('confirm') as string;
+
+    if (password !== confirm) {
+        // Simple error handling approach without external libs
+        // You would normally use URL params, but we just revalidate auth state for simplicity here
+        return;
+    }
+
+    const { error } = await supabase.auth.updateUser({ password });
+
+    if (!error) {
+        revalidatePath('/settings/categories');
+    }
+}

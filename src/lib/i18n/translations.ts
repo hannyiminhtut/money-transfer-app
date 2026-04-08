@@ -94,6 +94,11 @@ export const translations = {
         "settings.noCategoriesConfig": "No payment categories configured yet.",
         "settings.accessDenied": "Access Denied",
         "settings.ownerOnly": "Only the shop owner can manage payment categories.",
+        "settings.security": "Account Security",
+        "settings.changePass": "Change Password",
+        "settings.newPass": "New Password",
+        "settings.confirmPass": "Confirm Password",
+        "settings.updatePass": "Update Password",
 
         // Audit
         "audit.title": "Audit Logs",
@@ -194,6 +199,11 @@ export const translations = {
         "settings.noCategoriesConfig": "မည်သည့် ငွေလွှဲအမျိုးအစားမှ မထည့်သွင်းရသေးပါ။",
         "settings.accessDenied": "ဝင်ရောက်ခွင့် မရှိပါ",
         "settings.ownerOnly": "ဆိုင်ပိုင်ရှင်သာလျှင် ငွေလွှဲအမျိုးအစားများကို စီမံနိုင်ပါသည်။",
+        "settings.security": "လုံခြုံရေး",
+        "settings.changePass": "စကားဝှက် ပြောင်းရန်",
+        "settings.newPass": "စကားဝှက် အသစ်",
+        "settings.confirmPass": "စကားဝှက်ကို အတည်ပြုပါ",
+        "settings.updatePass": "စကားဝှက် ပြောင်းမည်",
 
         // Audit
         "audit.title": "စာရင်းစစ်မှတ်တမ်း",

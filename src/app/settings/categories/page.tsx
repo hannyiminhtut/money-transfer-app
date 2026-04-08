@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase/server';
-import { addCategory, toggleCategoryStatus, deleteCategory } from './actions';
+import { addCategory, toggleCategoryStatus, deleteCategory, updatePassword } from './actions';
 import { CreditCard, Wallet, Smartphone, Banknote, Landmark, Check, X, Trash2 } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import { Translate } from '@/components/Translate';
@@ -136,6 +136,45 @@ export default async function CategoriesPage() {
                             <p className="text-gray-500"><Translate tKey="settings.noCategoriesConfig" /></p>
                         </div>
                     )}
+                </div>
+            </div>
+
+            {/* Account Security Section */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6"><Translate tKey="settings.security" /></h2>
+
+                <div className="max-w-md">
+                    <h3 className="text-lg font-semibold mb-4 text-gray-800"><Translate tKey="settings.changePass" /></h3>
+                    <form action={updatePassword} className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1"><Translate tKey="settings.newPass" /></label>
+                            <input
+                                type="password"
+                                name="password"
+                                required
+                                minLength={6}
+                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                                placeholder="..."
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1"><Translate tKey="settings.confirmPass" /></label>
+                            <input
+                                type="password"
+                                name="confirm"
+                                required
+                                minLength={6}
+                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                                placeholder="..."
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            className="w-full py-2.5 bg-gray-900 hover:bg-black text-white font-medium rounded-lg transition-colors shadow-sm"
+                        >
+                            <Translate tKey="settings.updatePass" />
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
