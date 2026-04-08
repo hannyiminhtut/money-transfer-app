@@ -49,7 +49,7 @@ export default async function HistoryPage(props: {
 
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900"><Translate tKey="history.title" /></h1>
+                    <h1 className="text-2xl font-bold text-gray-900"><Translate tKey="history.title" /></h1>
                     <p className="text-gray-500 mt-1"><Translate tKey="history.viewAndFilter" /></p>
                 </div>
                 <Link

@@ -28,7 +28,7 @@ export default async function NewTransactionPage(props: { searchParams: Promise<
     return (
         <div className="max-w-3xl mx-auto">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold text-gray-900"><Translate tKey="transaction.new" /></h1>
+                <h1 className="text-2xl font-bold text-gray-900"><Translate tKey="transaction.new" /></h1>
                 <Link
                     href="/transactions/history"
                     className="px-4 py-2 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors font-medium"

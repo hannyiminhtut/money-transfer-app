@@ -47,7 +47,7 @@ export default async function CategoriesPage(props: { searchParams: Promise<{ ta
         <div className="max-w-4xl mx-auto space-y-6">
             <div className="flex justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900">
+                    <h1 className="text-2xl font-bold text-gray-900">
                         {tab === 'categories' ? <Translate tKey="settings.title" /> : <Translate tKey="settings.security" />}
                     </h1>
                     <p className="text-gray-500 mt-1">
