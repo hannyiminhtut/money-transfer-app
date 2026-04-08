@@ -1,0 +1,205 @@
+export const translations = {
+    en: {
+        // Navigation
+        "nav.dashboard": "Dashboard",
+        "nav.history": "History",
+        "nav.reports": "Reports",
+        "nav.audit": "Audit",
+        "nav.settings": "Settings",
+        "nav.logout": "Log Out",
+        "nav.title": "Transfer System",
+        "nav.titleShort": "TS",
+
+        // Common
+        "common.save": "Save",
+        "common.cancel": "Cancel",
+        "common.delete": "Delete",
+        "common.close": "Close",
+        "common.date": "Date",
+        "common.description": "Description",
+        "common.category": "Category",
+        "common.amount": "Amount",
+        "common.actions": "Actions",
+
+        // Dashboard
+        "dashboard.overview": "Today's Overview",
+        "dashboard.dailyHistory": "Daily History",
+        "dashboard.totalIn": "Total Received (IN)",
+        "dashboard.totalOut": "Total Sent (OUT)",
+        "dashboard.netFlow": "Net Cash Flow",
+        "dashboard.cashInflows": "Today's Cash Inflows",
+        "dashboard.cashOutflows": "Today's Cash Outflows",
+        "dashboard.surplus": "Surplus Cash Today",
+        "dashboard.deficit": "Deficit Cash Today",
+        "dashboard.moneyIn": "Money In",
+        "dashboard.moneyOut": "Money Out",
+        "dashboard.totalFees": "Total Fees Collected",
+        "dashboard.feeBreakdown": "Fees by Category",
+
+        // Transactions
+        "transaction.new": "New Transaction",
+        "transaction.viewHistory": "View History",
+        "transaction.transactionType": "Transaction Type",
+        "transaction.paymentProvider": "Payment Provider",
+        "transaction.noCategories": "No payment categories found. Please add them in Settings.",
+        "transaction.amountLabel": "Amount (MMK)",
+        "transaction.phoneLabel": "Customer Phone Number",
+        "transaction.customerLabel": "Customer Name",
+        "transaction.feeLabel": "Transaction Fee (MMK)",
+        "transaction.noteLabel": "Optional Note",
+        "transaction.save": "Save Transaction",
+
+        // History
+        "history.title": "Daily History",
+        "history.viewAndFilter": "View and filter transactions",
+        "history.date": "Date",
+        "history.type": "Type",
+        "history.provider": "Provider",
+        "history.allTypes": "All Types",
+        "history.moneyIn": "Money IN",
+        "history.moneyOut": "Money OUT",
+        "history.allProviders": "All Providers",
+        "history.filterBtn": "Filter",
+        "history.tableTime": "Time",
+        "history.tableType": "Type",
+        "history.tableAmount": "Amount",
+        "history.tableFee": "Fee",
+        "history.tableProvider": "Provider",
+        "history.tableCustomer": "Customer Name",
+        "history.tablePhone": "Phone",
+        "history.tableStaff": "Staff",
+        "history.tableNote": "Note",
+        "history.unknown": "Unknown",
+        "history.noTransactions": "No transactions found for the selected criteria.",
+
+        // Reports
+        "reports.title": "Monthly Reports",
+        "reports.summary": "Financial summary and category insights",
+        "reports.selectedPeriod": "Selected Period:",
+        "reports.totalIn": "Total Money IN",
+        "reports.totalOut": "Total Money OUT",
+        "reports.netBalanceFlow": "Net Balance Flow",
+        "reports.breakdown": "Breakdown by Payment Provider",
+        "reports.noTransactions": "No transactions recorded for this period.",
+
+        // Settings
+        "settings.title": "Payment Categories",
+        "settings.manage": "Manage accepted payment methods",
+        "settings.addCategory": "Add Category",
+        "settings.nameLabel": "Name",
+        "settings.iconLabel": "Select Icon Type",
+        "settings.save": "Save Category",
+        "settings.active": "Active",
+        "settings.disabled": "Disabled",
+        "settings.noCategoriesConfig": "No payment categories configured yet.",
+        "settings.accessDenied": "Access Denied",
+        "settings.ownerOnly": "Only the shop owner can manage payment categories.",
+
+        // Audit
+        "audit.title": "Audit Logs",
+        "audit.noLogs": "No audit logs found"
+    },
+    my: {
+        // Navigation
+        "nav.dashboard": "ဒက်ရှ်ဘုတ်",
+        "nav.history": "မှတ်တမ်း",
+        "nav.reports": "အစီရင်ခံစာများ",
+        "nav.audit": "စာရင်းစစ်",
+        "nav.settings": "ဆက်တင်များ",
+        "nav.logout": "ထွက်ရန်",
+        "nav.title": "ငွေလွှဲစနစ်",
+        "nav.titleShort": "TS",
+
+        // Common
+        "common.save": "သိမ်းမည်",
+        "common.cancel": "မလုပ်တော့ပါ",
+        "common.delete": "ဖျက်မည်",
+        "common.close": "ပိတ်ရန်",
+        "common.date": "ရက်စွဲ",
+        "common.description": "အကြောင်းအရာ",
+        "common.category": "အမျိုးအစား",
+        "common.amount": "ပမာဏ",
+        "common.actions": "လုပ်ဆောင်ချက်များ",
+
+        // Dashboard
+        "dashboard.overview": "ဒီနေ့အကျဉ်းချုပ်",
+        "dashboard.dailyHistory": "နေ့စဉ်မှတ်တမ်း",
+        "dashboard.totalIn": "ရရှိငွေစုစုပေါင်း (IN)",
+        "dashboard.totalOut": "လွှဲငွေစုစုပေါင်း (OUT)",
+        "dashboard.netFlow": "အသားတင် ငွေကြေးစီးဆင်းမှု",
+        "dashboard.cashInflows": "ဒီနေ့ ဝင်ငွေများ",
+        "dashboard.cashOutflows": "ဒီနေ့ ထွက်ငွေများ",
+        "dashboard.surplus": "ဒီနေ့ ပိုငွေ",
+        "dashboard.deficit": "ဒီနေ့ လိုငွေ",
+        "dashboard.moneyIn": "ဝင်ငွေ",
+        "dashboard.moneyOut": "ထွက်ငွေ",
+        "dashboard.totalFees": "စုစုပေါင်း ရရှိသော ဝန်ဆောင်ခ",
+        "dashboard.feeBreakdown": "အမျိုးအစားအလိုက် ဝန်ဆောင်ခများ",
+
+        // Transactions
+        "transaction.new": "စာရင်းသစ်",
+        "transaction.viewHistory": "မှတ်တမ်းကြည့်ရန်",
+        "transaction.transactionType": "ငွေသွင်း/ထုတ် အမျိုးအစား",
+        "transaction.paymentProvider": "ငွေလွှဲစနစ်/ဘဏ်",
+        "transaction.noCategories": "ငွေလွှဲအမျိုးအစားများ မတွေ့ပါ။ ဆက်တင်များတွင် သွားရောက်ထည့်သွင်းပါ။",
+        "transaction.amountLabel": "ပမာဏ (ကျပ်)",
+        "transaction.phoneLabel": "ဖောက်သည် ဖုန်းနံပါတ်",
+        "transaction.customerLabel": "ဖောက်သည် အမည်",
+        "transaction.feeLabel": "ဝန်ဆောင်ခ (ကျပ်)",
+        "transaction.noteLabel": "မှတ်ချက် (ရွေးချယ်နိုင်သည်)",
+        "transaction.save": "စာရင်းသိမ်းဆည်းမည်",
+
+        // History
+        "history.title": "နေ့စဉ်မှတ်တမ်း",
+        "history.viewAndFilter": "စာရင်းမှတ်တမ်းများကို ကြည့်ရှုစစ်ထုတ်ရန်",
+        "history.date": "ရက်စွဲ",
+        "history.type": "အမျိုးအစား",
+        "history.provider": "ငွေလွှဲစနစ်",
+        "history.allTypes": "အမျိုးအစားအားလုံး",
+        "history.moneyIn": "ဝင်ငွေ",
+        "history.moneyOut": "ထွက်ငွေ",
+        "history.allProviders": "စနစ်အားလုံး",
+        "history.filterBtn": "စစ်ထုတ်မည်",
+        "history.tableTime": "အချိန်",
+        "history.tableType": "အမျိုးအစား",
+        "history.tableAmount": "ပမာဏ",
+        "history.tableFee": "ဝန်ဆောင်ခ",
+        "history.tableProvider": "ငွေလွှဲစနစ်",
+        "history.tableCustomer": "ဖောက်သည် အမည်",
+        "history.tablePhone": "ဖုန်းနံပါတ်",
+        "history.tableStaff": "ဝန်ထမ်း",
+        "history.tableNote": "မှတ်ချက်",
+        "history.unknown": "အမည်မသိ",
+        "history.noTransactions": "ရွေးချယ်ထားသော အချက်အလက်များအတွက် မှတ်တမ်း မတွေ့ပါ။",
+
+        // Reports
+        "reports.title": "လစဉ် အစီရင်ခံစာများ",
+        "reports.summary": "ဘဏ္ဍာရေး အကျဉ်းချုပ်နှင့် အမျိုးအစားအလိုက် မှတ်တမ်း",
+        "reports.selectedPeriod": "ရွေးချယ်ထားသောကာလ:",
+        "reports.totalIn": "စုစုပေါင်း ဝင်ငွေ (IN)",
+        "reports.totalOut": "စုစုပေါင်း ထွက်ငွေ (OUT)",
+        "reports.netBalanceFlow": "အသားတင် ငွေကြေးစီးဆင်းမှု",
+        "reports.breakdown": "ငွေလွှဲစနစ်အလိုက် ခွဲခြမ်းစိတ်ဖြာချက်",
+        "reports.noTransactions": "ဤကာလအတွက် မှတ်တမ်းများ မရှိပါ။",
+
+        // Settings
+        "settings.title": "ငွေလွှဲစနစ် အမျိုးအစားများ",
+        "settings.manage": "လက်ခံသော ငွေလွှဲစနစ်များကို စီမံရန်",
+        "settings.addCategory": "အမျိုးအစားအသစ်ထည့်ရန်",
+        "settings.nameLabel": "အမည်",
+        "settings.iconLabel": "အိုင်ကွန်ရွေးချယ်ရန်",
+        "settings.save": "သိမ်းဆည်းမည်",
+        "settings.active": "ဖွင့်ထားသည်",
+        "settings.disabled": "ပိတ်ထားသည်",
+        "settings.noCategoriesConfig": "မည်သည့် ငွေလွှဲအမျိုးအစားမှ မထည့်သွင်းရသေးပါ။",
+        "settings.accessDenied": "ဝင်ရောက်ခွင့် မရှိပါ",
+        "settings.ownerOnly": "ဆိုင်ပိုင်ရှင်သာလျှင် ငွေလွှဲအမျိုးအစားများကို စီမံနိုင်ပါသည်။",
+
+        // Audit
+        "audit.title": "စာရင်းစစ်မှတ်တမ်း",
+        "audit.noLogs": "စာရင်းစစ်မှတ်တမ်း မရှိပါ"
+    }
+};
+
+export type Language = 'en' | 'my';
+export type TranslationKey = keyof typeof translations.en;
