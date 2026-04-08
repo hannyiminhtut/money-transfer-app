@@ -1,6 +1,6 @@
 import { createClient } from '@/utils/supabase/server';
-import { addCategory, toggleCategoryStatus, deleteCategory, updatePassword } from './actions';
-import { CreditCard, Wallet, Smartphone, Banknote, Landmark, Check, X, Trash2 } from 'lucide-react';
+import { addCategory, deleteCategory, updatePassword } from './actions';
+import { CreditCard, Wallet, Smartphone, Banknote, Landmark, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import { Translate } from '@/components/Translate';
 
@@ -125,18 +125,6 @@ export default async function CategoriesPage(props: { searchParams: Promise<{ ta
                                 </div>
 
                                 <div className="flex items-center space-x-2">
-                                    <form action={async () => {
-                                        'use server';
-                                        await toggleCategoryStatus(cat.id, cat.is_active);
-                                    }}>
-                                        <button
-                                            title={cat.is_active ? "Disable" : "Enable"}
-                                            className={`p-2 rounded-lg transition-colors ${cat.is_active ? 'text-orange-500 hover:bg-orange-50' : 'text-green-600 hover:bg-green-50'}`}
-                                        >
-                                            {cat.is_active ? <X className="w-5 h-5" /> : <Check className="w-5 h-5" />}
-                                        </button>
-                                    </form>
-
                                     <form action={async () => {
                                         'use server';
                                         await deleteCategory(cat.id);
